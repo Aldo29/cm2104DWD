@@ -25,7 +25,20 @@ header, section, article, nav, aside, footer, div {
   float: left;
 }
 
+.pageContentColumn {
+  width: 45%;
+}
+
+.thumbnail {
+  width: 30%;
+}
+
+#MainImage {
+  width:100%;
+}
+
 #PageContent {
+  margin: auto;
   border: 1px dashed Red;
 }
 
