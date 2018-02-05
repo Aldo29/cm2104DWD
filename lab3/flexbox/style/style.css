@@ -1,0 +1,79 @@
+html {
+  height: 100%;
+  display: table;
+}
+body {
+  margin: auto;
+  width: 80%;
+  display: table-cell;
+  height: 80%;
+  vertical-align: middle;
+}
+
+header, section, article, nav, aside, footer, div {
+  font-family: sans-serif;
+  border: 1px dotted #000;
+  padding: 10px;
+  margin: 10px;
+}
+
+.BlogPost {
+  background: LightBlue;
+}
+
+.flex-container {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.pageContentColumn {
+  width: 45%;
+}
+
+.thumbnail {
+  width: 30%;
+  height: 30%;
+}
+
+#MainImage {
+  width:100%;
+  height: 90%;
+}
+
+#ThumbnailContainer {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#PageContent {
+  justify-content: center;
+  border: 1px dashed Red;
+}
+
+#SiteLogo {
+  height: 80px;
+  width: 80px;
+}
+
+#SiteTitle{
+  margin-left: 10px;
+}
+
+#SiteNavigation {
+  padding: 0px;
+}
+
+#SiteNavigation ul {
+  margin: 0;
+}
+
+#SiteNavigation ul li {
+  list-style-type: none;
+  display: inline;
+}
+
+#SiteNavigation ul li:not(:first-child){
+  padding-left: 10px;
+}
