@@ -1,0 +1,16 @@
+Testing
+1) 80 requests
+2) 837 KB of data transfered
+3) 17.68s to complete
+4) jquery-1.9.1.js took the longest time
+5) 53 images loaded, 8 css files were loaded, 17 JS files were loaded
+6) app.js at 117kb was the largest js file
+
+Filtering
+1) https://www.bbc.co.uk
+2) client
+3) text/html; charset="utf-8" was the content-type in the response headers
+4) Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36
+   It is browser and os information of the client user-agent
+5) html and js of www.bbc.co.uk is what was in the response tab
+6) Sent 9 recieved 0 cookies
