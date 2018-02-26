@@ -19,10 +19,17 @@ $(document).ready(function(){
         $("table").addClass("table");
       },
       error: function(result){
-        console.log(Object.keys(result));
-        console.log(result.error);
-        console.log(result.statusText);
-        console.log(result.statusCode);
+        var output = "<table><thead><tr><th>Name</th><th>Provider</th><th>URL</th></thead><tbody>";
+        for (var i in result)
+        {
+        output+="<tr><td>" + result[i].name + "</td><td>" + result[i].provider + "</td><td>" +
+        result[i].url + "</td></tr>";
+        }
+        output+="</tbody></table>";
+        displayResources.html(output);
+        alert("test");
+        alert(output);
+        $("table").addClass("table");
       }
     });
   });
