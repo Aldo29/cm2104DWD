@@ -1,0 +1,10 @@
+.odd {
+  background-color: DarkGrey;
+}
+.even {
+  background-color: Grey;
+}
+.highlighted {
+  font-weight: bold;
+  background-color: yellow;
+}
