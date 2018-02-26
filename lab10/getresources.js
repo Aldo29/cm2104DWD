@@ -19,7 +19,7 @@ $(document).ready(function(){
         $("table").addClass("table");
       },
       error: function(result){
-        console.log(result.responseText);
+        console.log(Object.keys(result));
       }
     });
   });
