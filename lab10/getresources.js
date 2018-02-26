@@ -15,7 +15,7 @@ $(document).ready(function(){
         output+="</tbody></table>";
         displayResources.html(output);
         $("table").addClass("table");
-      });
+      };
     });
   });
 });
