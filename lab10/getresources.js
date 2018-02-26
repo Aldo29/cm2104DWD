@@ -17,6 +17,9 @@ $(document).ready(function(){
         alert("test");
         alert(output);
         $("table").addClass("table");
+      },
+      error: function(result){
+        alert("here: " + result);
       }
     });
   });
