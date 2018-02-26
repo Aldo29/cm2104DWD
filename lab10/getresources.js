@@ -20,6 +20,9 @@ $(document).ready(function(){
       },
       error: function(result){
         console.log(Object.keys(result));
+        console.log(result.error);
+        console.log(result.statusText);
+        console.log(result.statusCode);
       }
     });
   });
