@@ -14,7 +14,7 @@ $(document).ready(function(){
         }
         output+="</tbody></table>";
         displayResources.html(output);
-        console.log(output);
+        alert(output);
         $("table").addClass("table");
       }
     });
