@@ -14,6 +14,7 @@ $(document).ready(function(){
         }
         output+="</tbody></table>";
         displayResources.html(output);
+        alert("test");
         alert(output);
         $("table").addClass("table");
       }
