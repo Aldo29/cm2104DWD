@@ -4,7 +4,7 @@ $(document).ready(function(){
     displayResources.text('Loading data from JSON source...');
     $.ajax({
       type:"GET",
-      url: "resources.json",
+      url: "lab10/resources.json",
       success: function(result){
         var output = "<table><thead><tr><th>Name</th><th>Provider</th><th>URL</th></thead><tbody>";
         for (var i in result)
