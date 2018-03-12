@@ -21,13 +21,13 @@ app.get('/calc', function(req,res){
             res.send("X + Y = "+(parseInt(x)+parseInt(y)));
             break;
         case 'sub':
-            res.send("X - Y = "+(parseInt(x)+parseInt(y)));
+            res.send("X - Y = "+(parseInt(x)-parseInt(y)));
             break;
         case 'mul':
-            res.send("X * Y = "+(parseInt(x)+parseInt(y)));
+            res.send("X * Y = "+(parseInt(x)*parseInt(y)));
             break;
         case 'div':
-            res.send("X / Y = "+(parseInt(x)+parseInt(y)));
+            res.send("X / Y = "+(parseInt(x)/parseInt(y)));
             break;
     }
 });
