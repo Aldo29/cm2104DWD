@@ -15,7 +15,7 @@ app.get('/add', function(req,res){
 app.get('/calc', function(req,res){
     var x = req.query.x;
     var y = req.query.y;
-    var op = req.params[2];
+    var op = req.query.op;
     switch(op){
         case 'add':
             res.send("X + Y = "+(parseInt(x)+parseInt(y)));
