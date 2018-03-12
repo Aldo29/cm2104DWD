@@ -12,6 +12,26 @@ app.get('/add', function(req,res){
     res.send("X + Y = "+(parseInt(x)+parseInt(y)));
 });
 
+app.get('/calc', function(req,res){
+    var x = req.query.x;
+    var y = req.query.y;
+    var op = req.params[2];
+    switch(op){
+        case 'add':
+            res.send("X + Y = "+(parseInt(x)+parseInt(y)));
+            break;
+        case 'sub':
+            res.send("X - Y = "+(parseInt(x)+parseInt(y)));
+            break;
+        case 'mul':
+            res.send("X * Y = "+(parseInt(x)+parseInt(y)));
+            break;
+        case 'div':
+            res.send("X / Y = "+(parseInt(x)+parseInt(y)));
+            break;
+    }
+});
+
 app.get('/test', function(req,res){
     res.send("This is route 2");
 });
