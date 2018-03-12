@@ -6,6 +6,12 @@ app.get('/', function(req, res){
     res.send("Hello World! by express");
 });
 
+app.get('/add', function(req,res){
+    var x = req.query.x;
+    var y = req.query.y;
+    res.send("X + Y = "+(x+y));
+});
+
 app.get('/test', function(req,res){
     res.send("This is route 2");
 });
