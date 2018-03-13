@@ -57,13 +57,11 @@ app.get('/twitter/keyword', function(req,res){
     var keyword = req.query.keyword;
     var params = {q: keyword};
     client.get('search/tweets', params, function(error, tweets, response){
-        console.log(tweets);
         if (!error){
             var output = "";
-            for (var tweet in tweets.statuses){
+            for (var t = 0; t < tweets.length; t++){
                 output += "<div>";
-                output += "<h2>" + tweet.user.screen_name + "</h2>";
-                output += "<p>" + tweet.text + "</p>";
+                output += "<p>" + tweets[t].text + "</p>";
                 output += "</div>";
             }
             res.send(output);
