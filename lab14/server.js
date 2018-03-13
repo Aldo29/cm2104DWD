@@ -65,7 +65,7 @@ app.get('/twitter/keyword', function(req,res){
                 output += "<p>" + tweets[t].text + "</p>";
                 output += "</div>";
             }
-            res.send(output);
+            res.send("test" + tweets.length + " " + t);
             console.log(output);
         }
         else {
