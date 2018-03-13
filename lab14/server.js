@@ -57,16 +57,16 @@ app.get('/twitter/keyword', function(req,res){
     var keyword = req.query.keyword;
     var params = {q: keyword};
     client.get('search/tweets', params, function(error, tweets, response){
+        console.log(tweets);
         if (!error){
             var output = "";
-            for (var t = 0; t < tweets.length; t++){
+            for (var tweet in tweets){
                 output += "<div>";
-                output += "<h2>" + tweets[t].user.screen_name + "</h2>";
-                output += "<p>" + tweets[t].text + "</p>";
+                output += "<h2>" + tweet.user.screen_name + "</h2>";
+                output += "<p>" + tweet.text + "</p>";
                 output += "</div>";
             }
-            res.send("test" + tweets.length + " " + t);
-            console.log(output);
+            res.send(output);
         }
         else {
             console.log(error);
