@@ -57,8 +57,6 @@ app.get('/twitter/keyword', function(req,res){
     var keyword = req.query.keyword;
     var params = {q: keyword};
     client.get('search/tweets', params, function(error, tweets, response){
-        console.log(tweets);
-        console.log(keyword);
         if (!error){
             var output = "";
             for (var t = 0; t < tweets.length; t++){
@@ -68,6 +66,7 @@ app.get('/twitter/keyword', function(req,res){
                 output += "</div>";
             }
             res.send(output);
+            console.log(output);
         }
         else {
             console.log(error);
