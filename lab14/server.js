@@ -30,7 +30,6 @@ app.get('/', function(req,res){
             console.log(response);
         }
     });
-    res.send("Hello world! by express");
 });
 
 app.listen(8080);
