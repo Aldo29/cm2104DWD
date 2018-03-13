@@ -74,6 +74,22 @@ app.get('/twitter/keyword', function(req,res){
             console.log(response);
         }
     });
-})
+});
+
+app.get('/tweetsjson', function(req,res){
+    var params = {screen_name: 'nodejs'};
+    client.get('statuses/user_timeline', params, function(error,tweets,response){
+        if (!error) {
+            var json = [];
+            for (var i = 0; i < tweets.statuses.length; i++){
+                json.push({
+                    name: tweets.statuses[i].user.name,
+                    text: tweets.statuses[i].text
+                });
+            }
+            res.send(JSON.stringify(json));
+        }
+    });
+});
 
 app.listen(8080);
