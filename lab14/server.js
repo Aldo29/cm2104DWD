@@ -77,7 +77,13 @@ app.get('/twitter/keyword', function(req,res){
 });
 
 app.get('/tweetsjson', function(req,res){
-    var params = {screen_name: 'nodejs'};
+    var screen_name = req.query.screen_name;
+    var params;
+    if (screen_name){
+        params = {screen_name: screen_name};
+    } else {
+       params = {screen_name: 'nodejs'};
+    }
     client.get('statuses/user_timeline', params, function(error,tweets,response){
         if (!error) {
             var json = [];
