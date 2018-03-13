@@ -32,4 +32,46 @@ app.get('/', function(req,res){
     });
 });
 
+app.get('/twitter/screen_name', function(req,res){
+    var screen_name = req.query.screen_name;
+    var params = {screen_name: screen_name};
+    client.get('statuses/user_timeline', params, function(error, tweets, response){
+        if (!error){
+            var output = "";
+            for (var t = 0; t < tweets.length; t++){
+                output += "<div>";
+                output += "<h2>" + tweets[t].user.screen_name + "</h2>";
+                output += "<p>" + tweets[t].text + "</p>";
+                output += "</div>";
+            }
+            res.send(output);
+        }
+        else {
+            console.log(error);
+            console.log(response);
+        }
+    });
+});
+
+app.get('/twitter/keyword', function(req,res){
+    var keyword = req.query.keyword;
+    var params = {q: keyword};
+    client.get('search/tweets', params, function(error, tweets, response){
+        if (!error){
+            var output = "";
+            for (var t = 0; t < tweets.length; t++){
+                output += "<div>";
+                output += "<h2>" + tweets[t].user.screen_name + "</h2>";
+                output += "<p>" + tweets[t].text + "</p>";
+                output += "</div>";
+            }
+            res.send(output);
+        }
+        else {
+            console.log(error);
+            console.log(response);
+        }
+    });
+})
+
 app.listen(8080);
