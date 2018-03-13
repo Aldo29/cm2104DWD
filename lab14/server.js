@@ -60,7 +60,7 @@ app.get('/twitter/keyword', function(req,res){
         console.log(tweets);
         if (!error){
             var output = "";
-            for (var tweet in tweets){
+            for (var tweet in tweets.statuses){
                 output += "<div>";
                 output += "<h2>" + tweet.user.screen_name + "</h2>";
                 output += "<p>" + tweet.text + "</p>";
