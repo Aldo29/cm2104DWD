@@ -32,6 +32,7 @@ MongoClient.connect(url, function(err, database) {
 
 app.get('/', function(req,res) {
   var result = db.collection('quotes').find().toArray();
+  console.log(result);
   res.render("pages/index",{quotes:result});
 });
 app.get('/add', function(req,res) {
