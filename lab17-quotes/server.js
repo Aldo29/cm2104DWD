@@ -47,7 +47,7 @@ app.get('/delete', function(req,res) {
   });
 });
 app.get('/filter', function(req,res) {
-  res.render('pages/filter');
+  res.render('pages/filter',{quotes:[]});
 });
 app.get('/update', function(req,res) {
   var query = {quote:req.body.quote};
