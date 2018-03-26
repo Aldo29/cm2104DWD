@@ -41,13 +41,27 @@ app.get('/add', function(req,res) {
   res.render('pages/add');
 });
 app.get('/delete', function(req,res) {
-  res.render('pages/delete');
+  db.collection('quotes').deleteOne(req.body, function(err, result){
+    if (err) throw err;
+    res.render('pages/delete');
+  });
 });
 app.get('/filter', function(req,res) {
   res.render('pages/filter');
 });
 app.get('/update', function(req,res) {
-  res.render('pages/update');
+  var query = {quote:req.body.quote};
+  var newvalues = {$set: {name:req.body.newname, quote:req.body.newquote}};
+  
+  db.collection('quotes').updateOne(query,newvalues,function(err,result){
+      if (err) throw err;
+      res.render('pages/update');
+  });
+});
+app.post('/search', function(req,res){
+  db.collection('quotes').find(req.body).toArray(function(err,result){
+    res.render('pages/filter',{quotes:result});
+  });
 });
 
 app.get('/allquotes', function(req, res) {

@@ -15,6 +15,15 @@
         <button type="submit">Submit</button>
       </form>
     </div>
+    <h2>Quotes!</h2>
+    <ul>
+        <% quotes.forEach(function(quote) { %>
+            <li>
+                <%= quote.name %> -
+                <%= quote.quote %>
+            </li>
+        <% }); %>
+    </ul>
   </main>
 
   <% include ../partials/footer %>
