@@ -31,7 +31,8 @@ MongoClient.connect(url, function(err, database) {
 //you need to complete these
 
 app.get('/', function(req,res) {
-  res.render('pages/index');
+  var result = db.collection('quotes').find().toArray();
+  res.render("pages/index",{quotes:result});
 });
 app.get('/add', function(req,res) {
   res.render('pages/add');
@@ -45,8 +46,6 @@ app.get('/filter', function(req,res) {
 app.get('/update', function(req,res) {
   res.render('pages/update');
 });
-
-
 
 app.get('/allquotes', function(req, res) {
   db.collection('quotes').find().toArray(function(err, result) {
