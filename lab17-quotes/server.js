@@ -33,6 +33,7 @@ MongoClient.connect(url, function(err, database) {
 app.get('/', function(req,res) {
   var result = db.collection('quotes').find().toArray(function(err, result){
     if (err) throw err;
+    console.log(result)
     res.render("pages/index",{quotes:result});
   });
 });
