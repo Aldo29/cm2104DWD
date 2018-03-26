@@ -34,7 +34,7 @@ app.get('/', function(req,res) {
   var result = db.collection('quotes').find().toArray(function(err, result){
     if (err) throw err;
     console.log(result)
-    res.render("pages/index",{quotes:result});
+    res.render("pages/index.ejs",{quotes:result});
   });
 });
 app.get('/add', function(req,res) {
