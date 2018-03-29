@@ -73,8 +73,8 @@ app.get('/profile', function(req, res) {
     //console.log(uname+ ":" + result);
     //finally we just send the result to the user page as "user"
     res.render('pages/profile', {
-      user: result
-
+      user: result,
+      username: req.session.user.login.username
     })
   });
 
@@ -115,7 +115,7 @@ app.post('/dologin', function(req, res) {
     //if there is no result, redirect the user back to the login system as that username must not exist
     if(!result){res.redirect('/login');return}
     //if there is a result then check the password, if the password is correct set session loggedin to true and send the user to the index
-    if(result.login.password == pword){ req.session.loggedin = true; req.session.username = uname; res.redirect('/') }
+    if(result.login.password == pword){ req.session.loggedin = true; req.session.user = result; res.redirect('/') }
     //otherwise send them back to login
     else{res.redirect('/login')}
   });
@@ -174,4 +174,38 @@ var datatostore = {
     //when complete redirect to the index
     res.redirect('/')
   })
+});
+
+app.post('/doupdate', function(req,res){
+  //check we are logged in
+  if(!req.session.loggedin){res.redirect('/login');return;}
+
+  //we create the data string from the form components that have been passed in
+
+var datatostore = {
+"gender":req.body.gender,
+"name":{"title":req.body.title,"first":req.body.first,"last":req.body.last},
+"location":{"street":req.body.street,"city":req.body.city,"state":req.body.state,"postcode":req.body.postcode},
+"email":req.body.email,
+"login":{"username":req.body.username,"password":req.body.password},
+"dob":req.body.dob,"registered":Date(),
+"picture":{"large":req.body.large,"medium":req.body.medium,"thumbnail":req.body.thumbnail},
+"nat":req.body.nat}
+
+  db.collection('people').findOne({"login.username":origUser}, function(err,result){
+    if(err)throw err;
+    datatostore._id = result._id;
+  //once created we just run the data string against the database and all our new data will be saved/
+    db.collection('people').save(datatostore, function(err, result) {
+      if (err) throw err;
+      console.log('saved to database')
+      //when complete redirect to the index
+      res.redirect('/')
+    })
+  });
+});
+
+app.get('/updateuser', function(req,res){
+  if(!req.session.loggedin){res.redirect('/login');return;};
+  res.render('pages/update');
 });

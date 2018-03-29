@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<header>
+  <% include ../partials/head %>
+</header>
+
+
+<body class="container">
+    <header>
+      <% include ../partials/header %>
+    </header>
+
+  <main>
+    <div class="jumbotron">
+
+      <!-- form with entry box for each bit of inomfrtaion we want from our user. -->
+      <h3>Update a User</h3>
+      <!-- submits to our /adduser route. -->
+      <form action="/doupdate" method="POST">
+        <input type="text" value="<%=user._id%>" placeholder="id" name="id" hidden>
+        <input type="text" placeholder="current username" name="origUser"/>
+        <label>Name</label>
+        <input type="text" value="<%=user.name.title%>" placeholder="title" name="title">
+        <input type="text" value="<%=user.name.first%>" placeholder="first" name="first">
+        <input type="text" value="<%=user.name.last%>" placeholder="last"  name="last">
+        </br><label>Login</label>
+        <input type="email" value="<%=user.email%>" placeholder="me@example.com" name="email">
+        <input type="text" value="<%=user.login.username%>" placeholder="username" name="username">
+        <input type="password" value="<%=user.login.password%>" placeholder="password" name="password">
+        </br><label>Details</label>
+        <input type="text" value="<%=user.gender%>" placeholder="gender" name="gender">
+        <input type="datetime" value="<%=user.dob%>" placeholder="date of birth" name="dob">
+        <input type="text" value="<%=user.nat%>" placeholder="nationality" name="nat">
+        </br><label>Location</label>
+        <input type="text" value="<%=user.location.street%>" placeholder="street"   name="street">
+        <input type="text" value="<%=user.location.city%>" placeholder="city"     name="city">
+        <input type="text" value="<%=user.location.state%>" placeholder="state"    name="state">
+        <input type="text" value="<%=user.location.postcode%>" placeholder="postcode" name="postcode">
+        </br><label>Pictures</label>
+          <input type="text" value="<%=user.picture.large%>" placeholder="large"     name="large">
+          <input type="text" value="<%=user.picutre.medium%>" placeholder="medium"    name="medium">
+          <input type="text" value="%=user.picture.thumbnail%>" placeholder="thumbnail" name="thumbnail">
+        </br><button type="submit">Submit</button>
+      </form>
+    </div>
+  </main>
+
+
+  <footer>
+    <% include ../partials/footer %>
+  </footer>
+
+</body>
+
+</html>
