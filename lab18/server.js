@@ -53,6 +53,8 @@ app.get('/', function(req, res) {
     })
   });
 
+  console.log(req.session.username);
+
 });
 
 //this is our login route, all it does is render the login.ejs page.
