@@ -77,7 +77,7 @@ app.get('/profile', function(req, res) {
       username: req.session.user.login.username
     })
   });
-
+  console.log(req.session.user);
 });
 //adduser route simply draws our adduser page
 app.get('/adduser', function(req, res) {
