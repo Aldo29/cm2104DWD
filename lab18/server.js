@@ -48,7 +48,8 @@ app.get('/', function(req, res) {
     if (err) throw err;
     //the result of the query is sent to the users page as the "users" array
     res.render('pages/users', {
-      users: result
+      users: result,
+      username: req.session.username
     })
   });
 
@@ -74,6 +75,7 @@ app.get('/profile', function(req, res) {
     //finally we just send the result to the user page as "user"
     res.render('pages/profile', {
       user: result
+
     })
   });
 
@@ -114,7 +116,7 @@ app.post('/dologin', function(req, res) {
     //if there is no result, redirect the user back to the login system as that username must not exist
     if(!result){res.redirect('/login');return}
     //if there is a result then check the password, if the password is correct set session loggedin to true and send the user to the index
-    if(result.login.password == pword){ req.session.loggedin = true; res.redirect('/') }
+    if(result.login.password == pword){ req.session.loggedin = true; req.session.username = uname; res.redirect('/') }
     //otherwise send them back to login
     else{res.redirect('/login')}
   });
